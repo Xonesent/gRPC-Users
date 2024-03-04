@@ -1,0 +1,19 @@
+{
+  "Server": {
+    "Host": "localhost:9000",
+    "IPHeader": "Cf-Connecting-Ip",
+    "ShowUnknownErrorsInResponse": true,
+    "CookieDomain": "localhost"
+  },
+  "GRPCServer": {
+    "Host": "localhost:5001"
+  },
+  "Postgres": {
+    "Host": "localhost",
+    "Port": "54321",
+    "User": "postgres",
+    "Password": "test",
+    "DBName": "test_users",
+    "SSLMode": "disable"
+  }
+}
