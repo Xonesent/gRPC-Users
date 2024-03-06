@@ -2,8 +2,6 @@ package user_repository
 
 import (
 	"context"
-	"database/sql"
-	"errors"
 	sq "github.com/Masterminds/squirrel"
 	trmsqlx "github.com/avito-tech/go-transaction-manager/sqlx"
 	"github.com/jmoiron/sqlx"
@@ -43,7 +41,7 @@ func (r *UserRepo) CreateUser(ctx context.Context, UserParams models.GrpcAddUser
 }
 
 func (r *UserRepo) GetUser(ctx context.Context, UserParams models.GrpcGetUser) (string, error) {
-	query, args, err := sq.Select(GetUserColumns...).
+	query, args, err := sq.Select(UserName).
 		From(UserTableName).
 		Where(sq.Eq{UserId: UserParams.UserId}).
 		PlaceholderFormat(sq.Dollar).ToSql()
@@ -61,10 +59,6 @@ func (r *UserRepo) GetUser(ctx context.Context, UserParams models.GrpcGetUser) (
 		args...,
 	)
 	if err != nil {
-		if errors.Is(err, sql.ErrNoRows) {
-			return "", sql.ErrNoRows
-		}
-
 		return "", err
 	}
 	return result, nil

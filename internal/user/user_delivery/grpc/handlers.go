@@ -45,7 +45,7 @@ func (t *Implementation) GetUser(ctx context.Context, grpcParams *userProto.GetU
 	gotUser, err := t.userUC.GetUser(ctx, UserParams)
 	if err != nil {
 		log.Print(err.Error())
-		return nil, status.Errorf(codes.Internal, err.Error())
+		return nil, status.Errorf(codes.NotFound, err.Error())
 	}
 
 	return &userProto.GetUserResponse{

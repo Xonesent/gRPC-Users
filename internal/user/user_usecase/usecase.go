@@ -2,8 +2,6 @@ package user_usecase
 
 import (
 	"context"
-	"database/sql"
-	"errors"
 	"github.com/avito-tech/go-transaction-manager/trm/manager"
 	"users/internal/user"
 	"users/pkg/models"
@@ -33,9 +31,6 @@ func (t *UserUC) GetUser(ctx context.Context, UserParams models.GrpcGetUser) (st
 	userStr, err := t.userPGRepo.GetUser(ctx, UserParams)
 
 	if err != nil {
-		if errors.Is(err, sql.ErrNoRows) {
-			return "", nil
-		}
 		return "", err
 	}
 
