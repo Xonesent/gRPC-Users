@@ -18,12 +18,6 @@ type ConfigPg struct {
 }
 
 type Config struct {
-	Server struct {
-		Host                        string `validate:"required"`
-		IPHeader                    string `validate:"required"`
-		ShowUnknownErrorsInResponse bool
-		CookieDomain                string `validate:"required"`
-	}
 	GRPCServer struct {
 		Host string `validate:"required"`
 	}

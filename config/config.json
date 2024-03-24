@@ -1,10 +1,4 @@
 {
-  "Server": {
-    "Host": "localhost:9000",
-    "IPHeader": "Cf-Connecting-Ip",
-    "ShowUnknownErrorsInResponse": true,
-    "CookieDomain": "localhost"
-  },
   "GRPCServer": {
     "Host": "localhost:5001"
   },

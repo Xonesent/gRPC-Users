@@ -14,6 +14,9 @@ func main() {
 	}
 
 	psqlDB, err := server.NewDB(cfg.Postgres)
+	if err != nil {
+		log.Fatalf("psqlDB: %v", err)
+	}
 
 	s := server.NewServer(
 		cfg,
